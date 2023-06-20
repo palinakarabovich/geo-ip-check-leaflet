@@ -1,5 +1,5 @@
 import React from 'react';
-import { VALIDATION_MESSAGE, defaultValidation } from '../../utils/constants';
+import { BACKGROUND_COLOR, VALIDATION_MESSAGE, defaultValidation } from '../../utils/constants';
 import generate from '../../utils/generateRandomIp';
 import './Search.css';
 import {checkAddressSymbols, checkFullAddress} from '../../utils/inputValidation';
@@ -46,12 +46,13 @@ const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getG
 
   return (
     <div className='search'>
+      <h1 className='search__title'>Type any IP address to see its location</h1>
       <input value={value} onChange={handleInputChange} className='search__input' placeholder='XXX.XXX.XXX.XXX' onKeyDown={handleEnterPress} />
-      <p className='search__error'>{!validation.status && `${validation.message}`}</p>
+      <p className='search__error' style={validation.status ? {color: `${BACKGROUND_COLOR}`, userSelect: 'none'} : {}}>{validation.message}</p>
       <div className='search__buttons-container'>
         <button onClick={handleSearchButtonClick} className='search__buttons-container-button' disabled={value === '' ? true : checkFullAddress(value) ? false : true}>search</button>
-        <button onClick={handleGetRandomIPButtonClick} className='search__buttons-container-button'>get random IP-address</button>
-        <button onClick={handleGetMyIPButtonClick} className='search__buttons-container-button' disabled={position.default ? true : false}>get my IP-address</button>
+        <button onClick={handleGetRandomIPButtonClick} className='search__buttons-container-button'>random IP-address</button>
+        <button onClick={handleGetMyIPButtonClick} className='search__buttons-container-button' disabled={position.default ? true : false}>my IP-address</button>
       </div>
       <div className='search__information'>
         <p className='search__text'>

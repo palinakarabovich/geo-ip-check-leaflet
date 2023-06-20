@@ -8,7 +8,7 @@ export const customIcon = divIcon({
 
 export const defaultValidation = {
   status: true,
-  message: ''
+  message: 'no errors'
 }
 
 export const VALIDATION_MESSAGE = 'IP address includes 4 numbers from 0 to 255 separeted by "."';
@@ -20,5 +20,7 @@ export const MAPS_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 export const ipAdressPattern = /^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
 export const ipAdressSegmentPattern = /^\d+$/;
+
+export const BACKGROUND_COLOR = 'rgb(237, 242, 211)'
 
 
