@@ -1,6 +1,6 @@
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import "../../../node_modules/leaflet/dist/leaflet.css"
-import { MAPS_URL, customIcon } from "../../utils/constants";
+import { MAPS_URL, CUSTOM_ICON } from "../../utils/constants";
 import './Map.css';
 import Loader from "../Loader/Loader";
 
@@ -14,7 +14,7 @@ const Map = ({ position, mapKey, loading }) => {
             <TileLayer
               url={MAPS_URL}
             />
-            <Marker position={position.coordinates} icon={customIcon}>
+            <Marker position={position.coordinates} icon={CUSTOM_ICON}>
             </Marker>
           </MapContainer>
       }

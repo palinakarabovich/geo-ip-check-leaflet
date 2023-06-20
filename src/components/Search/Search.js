@@ -1,12 +1,12 @@
 import React from 'react';
-import { BACKGROUND_COLOR, VALIDATION_MESSAGE, defaultValidation } from '../../utils/constants';
+import { BACKGROUND_COLOR, VALIDATION_MESSAGE, DEFAULT_VALIDATION } from '../../utils/constants';
 import generate from '../../utils/generateRandomIp';
 import './Search.css';
 import {checkAddressSymbols, checkFullAddress} from '../../utils/inputValidation';
 
 const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getGeo }) => {
 
-  const [validation, setValidation] = React.useState(defaultValidation);
+  const [validation, setValidation] = React.useState(DEFAULT_VALIDATION);
 
   const handleEnterPress = (e) => {
     if (e.key === 'Enter' && checkFullAddress(e.target.value)) {
@@ -41,7 +41,7 @@ const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getG
         status: false,
         message: VALIDATION_MESSAGE
       })
-    } else setValidation(defaultValidation)
+    } else setValidation(DEFAULT_VALIDATION)
   }
 
   return (
