@@ -6,7 +6,19 @@ export const customIcon = divIcon({
   iconSize: [30, 30],
 });
 
+export const defaultValidation = {
+  status: true,
+  message: ''
+}
+
+export const VALIDATION_MESSAGE = 'IP address includes 4 numbers from 0 to 255 separeted by "."';
+
 export const MAIN_FETCH_URL = 'https://geo.ipify.org/api/v2/country,city?apiKey=at_g2cSyoFvav0RFaSPBGV6nyzHRRdhd'
 
 export const MAPS_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+
+export const ipAdressPattern = /^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
+export const symbolPattern =  /^[0-9.]*$/;
+
 
