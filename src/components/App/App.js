@@ -3,6 +3,7 @@ import React from 'react';
 import Search from '../Search/Search';
 import Map from '../Map/Map';
 import { fetchGeo, fetchMyCurrentGeo } from '../../utils/api';
+import generate from '../../utils/generateRandomIp';
 
 
 function App() {
@@ -26,10 +27,11 @@ function App() {
     setMapKey(prevKey => prevKey + 1);
   }
 
-
-
   const getGeo = async (geo) => {
     const searchResult = await fetchGeo(geo);
+    if(searchResult.region === '' && searchResult.country === 'ZZ'){
+      getGeo(generate())
+    }
     setPosition(searchResult);
     setMapKey(prevKey => prevKey + 1);
   }
