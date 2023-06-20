@@ -1,10 +1,27 @@
-import { symbolPattern } from "./constants";
+import { ipAdressPattern, ipAdressSegmentPattern } from "./constants";
 
-const checkInput = (value) => {
-  const lastSymbol = value[value.length - 1];
-  if (!symbolPattern.test(lastSymbol)) {
+export const checkAddressSymbols = (value) => {
+  const segments = value.split('.');
+  if (segments.length > 4) {
     return false;
-  } else return true;
-}
+  }
+  for (let i = 0; i < segments.length; i++) {
+    const segment = segments[i];
 
-export default checkInput;
+    if (segment.length === 0){
+      return true;
+    }
+    if (!ipAdressSegmentPattern.test(segment)) {
+      return false;
+    }
+    const num = Number(segment);
+    if (num < 0 || num > 255) {
+      return false;
+    }
+  }
+  return true;
+};
+
+export const checkFullAddress = (value) => {
+  return ipAdressPattern.test(value);
+}

@@ -1,25 +1,21 @@
 import React from 'react';
-import { VALIDATION_MESSAGE, defaultValidation, ipAdressPattern } from '../../utils/constants';
+import { VALIDATION_MESSAGE, defaultValidation } from '../../utils/constants';
 import generate from '../../utils/generateRandomIp';
 import './Search.css';
-import checkInput from '../../utils/inputValidation';
+import {checkAddressSymbols, checkFullAddress} from '../../utils/inputValidation';
 
 const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getGeo }) => {
 
   const [validation, setValidation] = React.useState(defaultValidation);
 
-  const handleEnterPress = (event) => {
-    if (event.key === 'Enter' && ipAdressPattern.test(value)) {
-      hasInputError(false)
+  const handleEnterPress = (e) => {
+    if (e.key === 'Enter' && checkFullAddress(e.target.value)) {
       handleSearch();
-    } hasInputError(true)
+    } 
   };
 
   const handleSearchButtonClick = () => {
-    if (ipAdressPattern.test(value)) {
-      hasInputError(false)
       handleSearch();
-    } else hasInputError(true)
   };
 
   const handleGetMyIPButtonClick = () => {
@@ -27,18 +23,16 @@ const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getG
   };
 
   const handleGetRandomIPButtonClick = () => {
-    getGeo(generate())
+    getGeo(generate());
   };
 
   const handleInputChange = (e) => {
     setValue(e.target.value)
     if(e.target.value !== ''){
-      if (!checkInput(e.target.value)) {
-        hasInputError(true);
-      } else {
+      if(checkAddressSymbols(e.target.value)){
         hasInputError(false)
-      }
-    }
+      } else hasInputError(true)
+    } else hasInputError(false)
   }
 
   const hasInputError = (error) => {
@@ -55,7 +49,7 @@ const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getG
       <input value={value} onChange={handleInputChange} className='search__input' placeholder='XXX.XXX.XXX.XXX' onKeyDown={handleEnterPress} />
       <p className='search__error'>{!validation.status && `${validation.message}`}</p>
       <div className='search__buttons-container'>
-        <button onClick={handleSearchButtonClick} className='search__buttons-container-button' disabled={value === '' ? true : ipAdressPattern.test(value) ? false : true}>search</button>
+        <button onClick={handleSearchButtonClick} className='search__buttons-container-button' disabled={value === '' ? true : checkFullAddress(value) ? false : true}>search</button>
         <button onClick={handleGetRandomIPButtonClick} className='search__buttons-container-button'>get random IP-address</button>
         <button onClick={handleGetMyIPButtonClick} className='search__buttons-container-button' disabled={position.default ? true : false}>get my IP-address</button>
       </div>

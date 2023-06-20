@@ -19,6 +19,6 @@ export const MAPS_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 
 export const ipAdressPattern = /^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
-export const symbolPattern =  /^[0-9.]*$/;
+export const ipAdressSegmentPattern = /^\d+$/;
 
 
