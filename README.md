@@ -3,7 +3,7 @@
 This app allows you to type any IP-address to see its location on the map. You can also check your own IP-address or get a random one.
 
 ## Technologies
-* JavaScript
+* TypeScript
 * React
 * Leaflet
 * Open street map
