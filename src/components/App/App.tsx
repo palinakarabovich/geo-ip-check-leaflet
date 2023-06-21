@@ -5,14 +5,16 @@ import Map from '../Map/Map';
 import { fetchGeo, fetchMyCurrentGeo } from '../../utils/api';
 import generate from '../../utils/generateRandomIp';
 import Loader from '../Loader/Loader';
+import { position } from '../types/types';
+import { DEFAULT_POSITION } from '../../utils/constants';
 
 
-function App() {
+const App: React.FC = () => {
 
-  const [position, setPosition] = React.useState({});
-  const [inputValue, setInputValue] = React.useState('');
-  const [mapKey, setMapKey] = React.useState(0);
-  const [positionLoading, setPositionLoading] = React.useState(true);
+  const [position, setPosition] = React.useState<position>(DEFAULT_POSITION);
+  const [inputValue, setInputValue] = React.useState<string>('');
+  const [mapKey, setMapKey] = React.useState<number>(0);
+  const [positionLoading, setPositionLoading] = React.useState<boolean>(true);
 
   React.useEffect(() => {
     getMyCurrentGeo();
@@ -26,14 +28,14 @@ function App() {
   const getMyCurrentGeo = async () => {
     setPositionLoading(true);
     const currentGeo = await fetchMyCurrentGeo();
-    setPosition(currentGeo);
+    setPosition(currentGeo as position);
     setMapKey(prevKey => prevKey + 1);
     setPositionLoading(false);
   }
 
-  const getGeo = async (geo) => {
+  const getGeo = async (geo: string) => {
     setPositionLoading(true);
-    const searchResult = await fetchGeo(geo);
+    const searchResult = await fetchGeo(geo) as position;
     if (searchResult.region === '' && searchResult.country === 'ZZ') {
       getGeo(generate())
     } else {

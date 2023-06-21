@@ -11,6 +11,15 @@ export const DEFAULT_VALIDATION = {
   message: 'no errors'
 }
 
+export const DEFAULT_POSITION = {
+  ip: '',
+  coordinates: {lat: 0, lng: 0},
+  region: '',
+  country: '',
+  default: true,
+}
+
+
 export const VALIDATION_MESSAGE = 'IP address includes 4 numbers from 0 to 255 separeted by "."';
 
 export const MAIN_FETCH_URL = 'https://geo.ipify.org/api/v2/country,city?apiKey=at_g2cSyoFvav0RFaSPBGV6nyzHRRdhd'

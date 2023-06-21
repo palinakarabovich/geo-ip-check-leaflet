@@ -11,7 +11,7 @@ const generateRandomIp = () => {
 }
 
 const generateNumber = () => {
-  return Math.floor((Math.random() * 254) + 1);
+  return Math.floor((Math.random() * 254) + 1).toString();
 }
 
 export default generateRandomIp;

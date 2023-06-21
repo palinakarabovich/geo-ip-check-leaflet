@@ -2,7 +2,7 @@
   "name": "map",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./", 
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -42,6 +42,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0"
+    "@types/leaflet": "^1.9.3",
+    "gh-pages": "^5.0.0",
+    "typescript": "^3.2.1"
   }
 }

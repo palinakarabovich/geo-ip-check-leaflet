@@ -3,8 +3,11 @@ import "../../../node_modules/leaflet/dist/leaflet.css"
 import { MAPS_URL, CUSTOM_ICON } from "../../utils/constants";
 import './Map.css';
 import Loader from "../Loader/Loader";
+import React from "react";
+import { mapProps } from "../types/types";
 
-const Map = ({ position, mapKey, loading }) => {
+const Map: React.FC<mapProps> = ({ position, mapKey, loading }) => {
+  
   return (
     <>
       {

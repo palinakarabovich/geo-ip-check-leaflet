@@ -3,13 +3,15 @@ import { BACKGROUND_COLOR, VALIDATION_MESSAGE, DEFAULT_VALIDATION } from '../../
 import generate from '../../utils/generateRandomIp';
 import './Search.css';
 import { checkAddressSymbols, checkFullAddress } from '../../utils/inputValidation';
+import { searchProps } from '../types/types';
 
-const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getGeo }) => {
+const Search: React.FC<searchProps> = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getGeo }) => {
 
   const [validation, setValidation] = React.useState(DEFAULT_VALIDATION);
 
-  const handleEnterPress = (e) => {
-    if (e.key === 'Enter' && checkFullAddress(e.target.value)) {
+  const handleEnterPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const inputElement = e.target as HTMLInputElement;
+    if (e.key === 'Enter' && checkFullAddress(inputElement.value)) {
       handleSearch();
     }
   };
@@ -26,7 +28,7 @@ const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getG
     getGeo(generate());
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
     if (e.target.value !== '') {
       if (checkAddressSymbols(e.target.value)) {
@@ -35,7 +37,7 @@ const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getG
     } else hasInputError(false)
   }
 
-  const hasInputError = (error) => {
+  const hasInputError = (error: boolean) => {
     if (error) {
       setValidation({
         status: false,

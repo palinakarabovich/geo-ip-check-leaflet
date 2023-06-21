@@ -1,6 +1,6 @@
 import { ipAdressPattern, ipAdressSegmentPattern } from "./constants";
 
-export const checkAddressSymbols = (value) => {
+export const checkAddressSymbols = (value: string) => {
   const segments = value.split('.');
   if (segments.length > 4) {
     return false;
@@ -22,6 +22,6 @@ export const checkAddressSymbols = (value) => {
   return true;
 };
 
-export const checkFullAddress = (value) => {
+export const checkFullAddress = (value: string) => {
   return ipAdressPattern.test(value);
 }
