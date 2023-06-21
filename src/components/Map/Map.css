@@ -1,9 +1,9 @@
-.leaflet-container{
+.leaflet-container {
   height: 60vh;
   width: 100%;
 }
 
-.map__loader{
+.map__loader {
   height: 60vh;
   width: 100%;
   display: flex;

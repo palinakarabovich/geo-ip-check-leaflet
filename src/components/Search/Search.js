@@ -2,7 +2,7 @@ import React from 'react';
 import { BACKGROUND_COLOR, VALIDATION_MESSAGE, DEFAULT_VALIDATION } from '../../utils/constants';
 import generate from '../../utils/generateRandomIp';
 import './Search.css';
-import {checkAddressSymbols, checkFullAddress} from '../../utils/inputValidation';
+import { checkAddressSymbols, checkFullAddress } from '../../utils/inputValidation';
 
 const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getGeo }) => {
 
@@ -11,11 +11,11 @@ const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getG
   const handleEnterPress = (e) => {
     if (e.key === 'Enter' && checkFullAddress(e.target.value)) {
       handleSearch();
-    } 
+    }
   };
 
   const handleSearchButtonClick = () => {
-      handleSearch();
+    handleSearch();
   };
 
   const handleGetMyIPButtonClick = () => {
@@ -28,15 +28,15 @@ const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getG
 
   const handleInputChange = (e) => {
     setValue(e.target.value)
-    if(e.target.value !== ''){
-      if(checkAddressSymbols(e.target.value)){
+    if (e.target.value !== '') {
+      if (checkAddressSymbols(e.target.value)) {
         hasInputError(false)
       } else hasInputError(true)
     } else hasInputError(false)
   }
 
   const hasInputError = (error) => {
-    if(error){
+    if (error) {
       setValidation({
         status: false,
         message: VALIDATION_MESSAGE
@@ -48,7 +48,7 @@ const Search = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getG
     <div className='search'>
       <h1 className='search__title'>Type any IP address to see its location</h1>
       <input value={value} onChange={handleInputChange} className='search__input' placeholder='XXX.XXX.XXX.XXX' onKeyDown={handleEnterPress} />
-      <p className='search__error' style={validation.status ? {color: `${BACKGROUND_COLOR}`, userSelect: 'none'} : {}}>{validation.message}</p>
+      <p className='search__error' style={validation.status ? { color: `${BACKGROUND_COLOR}`, userSelect: 'none' } : {}}>{validation.message}</p>
       <div className='search__buttons-container'>
         <button onClick={handleSearchButtonClick} className='search__buttons-container-button' disabled={value === '' ? true : checkFullAddress(value) ? false : true}>search</button>
         <button onClick={handleGetRandomIPButtonClick} className='search__buttons-container-button'>random IP-address</button>

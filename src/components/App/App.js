@@ -50,7 +50,7 @@ function App() {
           ? <Loader />
           : <>
             <Search value={inputValue} setValue={setInputValue} handleSearch={handleSearch} position={position} getMyCurrentGeo={getMyCurrentGeo} getGeo={getGeo} />
-            <Map position={position} mapKey={mapKey} loading={positionLoading}/>
+            <Map position={position} mapKey={mapKey} loading={positionLoading} />
           </>
       }
     </div>

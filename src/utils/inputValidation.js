@@ -8,7 +8,7 @@ export const checkAddressSymbols = (value) => {
   for (let i = 0; i < segments.length; i++) {
     const segment = segments[i];
 
-    if (segment.length === 0){
+    if (segment.length === 0) {
       return true;
     }
     if (!ipAdressSegmentPattern.test(segment)) {
