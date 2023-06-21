@@ -3,7 +3,7 @@ import { BACKGROUND_COLOR, VALIDATION_MESSAGE, DEFAULT_VALIDATION } from '../../
 import generate from '../../utils/generateRandomIp';
 import './Search.css';
 import { checkAddressSymbols, checkFullAddress } from '../../utils/inputValidation';
-import { searchProps } from '../types/types';
+import { searchProps } from '../../types/types';
 
 const Search: React.FC<searchProps> = ({ value, setValue, handleSearch, position, getMyCurrentGeo, getGeo }) => {
 

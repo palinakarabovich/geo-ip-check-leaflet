@@ -5,7 +5,7 @@ import Map from '../Map/Map';
 import { fetchGeo, fetchMyCurrentGeo } from '../../utils/api';
 import generate from '../../utils/generateRandomIp';
 import Loader from '../Loader/Loader';
-import { position } from '../types/types';
+import { position } from '../../types/types';
 import { DEFAULT_POSITION } from '../../utils/constants';
 
 

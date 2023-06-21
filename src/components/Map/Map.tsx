@@ -4,10 +4,10 @@ import { MAPS_URL, CUSTOM_ICON } from "../../utils/constants";
 import './Map.css';
 import Loader from "../Loader/Loader";
 import React from "react";
-import { mapProps } from "../types/types";
+import { mapProps } from "../../types/types";
 
 const Map: React.FC<mapProps> = ({ position, mapKey, loading }) => {
-  
+
   return (
     <>
       {

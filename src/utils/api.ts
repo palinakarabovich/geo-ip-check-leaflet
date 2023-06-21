@@ -1,4 +1,4 @@
-import { position } from "../components/types/types"
+import { position } from "../types/types"
 import { MAIN_FETCH_URL } from "./constants"
 
 const checkResponse = (res: Response) => {
